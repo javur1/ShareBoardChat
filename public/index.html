@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FLDC - Forbidden Lands Dice and Chat</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <div class="screen join-screen active">
+        <div class="form">
+          <h2>Unete a la partida</h2>
+          <div class="form-input">
+            <label for=""> Mi nombre es </label>
+            <input type="text" name="" id="username" />
+          </div>
+          <div class="form-input">
+            <button id="join-user">Unirse</button>
+          </div>
+        </div>
+      </div>
+      <div class="screen chat-screen">
+        <div class="header">
+          <div class="logo">FLDC</div>
+          <button id="exit-chat">Salir</button>
+        </div>
+        <div class="messages">
+          <!-- Dummy -->
+          <!-- <div class="message my-message">
+              <div>
+                <div class="name">Tú</div>
+                <div class="text">Hola Javurvur</div>
+              </div>
+            </div>
+            <div class="update">JAVURVUR se unio a la conversacion</div>
+            <div class="message other-message">
+              <div>
+                <div class="name">JAVURVUR</div>
+                <div class="text">Hola Javur</div>
+              </div>
+            </div>  -->
+        </div>
+        <div class="dice-tray">
+          <label for="abilitydice">Caracteristca:</label>
+          <select id="abilitydice" name="abilitydice">
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+          </select>
+          <label for="skilldice">Habilidad:</label>
+          <select id="skilldice" name="skilldice">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+          </select>
+          <label for="tooldice">Herramienta:</label>
+          <select id="tooldice" name="tooldice">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+          </select>
+          <button id="send-dice">Tirar dados</button>
+        </div>
+        <div class="typebox">
+          <input type="text" id="message-input" />
+
+          <button id="send-message">Enviar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="socket.io/socket.io.js"></script>
+    <script src="code.js"></script>
+  </body>
+</html>
