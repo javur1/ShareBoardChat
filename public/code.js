@@ -2,6 +2,10 @@
   const app = document.querySelector(".app");
   const socket = io();
 
+  let currentURL = document.location.search;
+  let params = new URLSearchParams(currentURL);
+  let name = params.get("room");
+  console.log(name);
   let uname;
 
   /*unirse al chat*/
@@ -9,11 +13,21 @@
     .querySelector(".join-screen #join-user")
     .addEventListener("click", function () {
       let username = app.querySelector(".join-screen #username").value;
-      if (username.length == 0) {
+      let room = app.querySelector(".join-screen #roomname").value;
+      
+      console.log(room);
+      if (username.length == 0 || room.length == 0) {
         return;
       }
       socket.emit("newuser", username);
       uname = username;
+      //roomname = room;
+      //params.set('room',room);
+      //currentURL.search = params.toString();
+      //const newUrl = currentURL.toString();
+      //console.log(newUrl);
+      //window.location.href = newUrl;
+      //socket.emit('join', room);
       app.querySelector(".join-screen").classList.remove("active");
       app.querySelector(".chat-screen").classList.add("active");
     });
@@ -113,11 +127,11 @@
         <div>
             ${message.username} tiro dados y sacó <br>
             <p class="ability-dice"> <mark>${aR}</mark></p>
-            <br>
+             
             <p class="skill-dice"> <mark>${sR}</mark></p>
-            <br>
+             
             <p class="tool-dice"> <mark>${tR}</mark></p>
-            <br>
+             
         </div>
       `;
       messageContainer.appendChild(el);

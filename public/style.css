@@ -134,6 +134,9 @@ body {
     border-radius: 6px; 
     margin-bottom: 4px;
 }
+.chat-screen .messages .update div p {
+    font-size: 30px;
+}
 .chat-screen .messages .update div p.ability-dice mark {
   color: black;
   background-color: white;

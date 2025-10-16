@@ -6,9 +6,17 @@ const server = require("http").createServer(app);
 
 const io = require("socket.io")(server);
 
+
 app.use(express.static(path.join(__dirname+"/public")));
 
 io.on("connection",function(socket){
+    /*socket.on('join',function(room) {
+    socket.join(room);
+    console.log('joined room '+room);
+    });*/
+    /*socket.on('message', (msg, room) => {
+    io.to(room).emit('message', msg);
+    });*/
     socket.on("newuser",function(username){
         socket.broadcast.emit("update", username + " se unió a la partida");
     });
@@ -24,4 +32,6 @@ io.on("connection",function(socket){
     });
 });
 
-server.listen(5000);
+server.listen(5000, 'localhost', function(){
+    console.log("toy en el 5000 panita")
+});
